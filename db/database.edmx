@@ -4,11 +4,536 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="database.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="databaseTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="database.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="databaseStoreContainer">
+    <EntitySet Name="Radniks" EntityType="database.Store.Radniks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Kupacs" EntityType="database.Store.Kupacs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ugovors" EntityType="database.Store.Ugovors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Porudzbinas" EntityType="database.Store.Porudzbinas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Prosledjujes" EntityType="database.Store.Prosledjujes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Dobavljacs" EntityType="database.Store.Dobavljacs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Kontakts" EntityType="database.Store.Kontakts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Magacins" EntityType="database.Store.Magacins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Povrces" EntityType="database.Store.Povrces" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Odvajas" EntityType="database.Store.Odvajas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tovaris" EntityType="database.Store.Tovaris" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vozis" EntityType="database.Store.Vozis" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks_Direktor" EntityType="database.Store.Radniks_Direktor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks_Menadzer" EntityType="database.Store.Radniks_Menadzer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks_Magacioner" EntityType="database.Store.Radniks_Magacioner" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks_Vozac" EntityType="database.Store.Radniks_Vozac" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="DirektorUgovor" Association="database.Store.DirektorUgovor">
+      <End Role="Direktor" EntitySet="Radniks_Direktor" />
+      <End Role="Ugovor" EntitySet="Ugovors" />
+    </AssociationSet>
+    <AssociationSet Name="KupacUgovor" Association="database.Store.KupacUgovor">
+      <End Role="Kupac" EntitySet="Kupacs" />
+      <End Role="Ugovor" EntitySet="Ugovors" />
+    </AssociationSet>
+    <AssociationSet Name="UgovorPorudzbina" Association="database.Store.UgovorPorudzbina">
+      <End Role="Ugovor" EntitySet="Ugovors" />
+      <End Role="Porudzbina" EntitySet="Porudzbinas" />
+    </AssociationSet>
+    <AssociationSet Name="MenadzerPorudzbina" Association="database.Store.MenadzerPorudzbina">
+      <End Role="Menadzer" EntitySet="Radniks_Menadzer" />
+      <End Role="Porudzbina" EntitySet="Porudzbinas" />
+    </AssociationSet>
+    <AssociationSet Name="PorudzbinaProsledjuje" Association="database.Store.PorudzbinaProsledjuje">
+      <End Role="Porudzbina" EntitySet="Porudzbinas" />
+      <End Role="Prosledjuje" EntitySet="Prosledjujes" />
+    </AssociationSet>
+    <AssociationSet Name="MagacionerProsledjuje" Association="database.Store.MagacionerProsledjuje">
+      <End Role="Magacioner" EntitySet="Radniks_Magacioner" />
+      <End Role="Prosledjuje" EntitySet="Prosledjujes" />
+    </AssociationSet>
+    <AssociationSet Name="DobavljacKontakt" Association="database.Store.DobavljacKontakt">
+      <End Role="Dobavljac" EntitySet="Dobavljacs" />
+      <End Role="Kontakt" EntitySet="Kontakts" />
+    </AssociationSet>
+    <AssociationSet Name="DirektorKontakt" Association="database.Store.DirektorKontakt">
+      <End Role="Direktor" EntitySet="Radniks_Direktor" />
+      <End Role="Kontakt" EntitySet="Kontakts" />
+    </AssociationSet>
+    <AssociationSet Name="MagacinPovrce" Association="database.Store.MagacinPovrce">
+      <End Role="Magacin" EntitySet="Magacins" />
+      <End Role="Povrce" EntitySet="Povrces" />
+    </AssociationSet>
+    <AssociationSet Name="KontaktPovrce" Association="database.Store.KontaktPovrce">
+      <End Role="Kontakt" EntitySet="Kontakts" />
+      <End Role="Povrce" EntitySet="Povrces" />
+    </AssociationSet>
+    <AssociationSet Name="ProsledjujePovrce" Association="database.Store.ProsledjujePovrce">
+      <End Role="Prosledjuje" EntitySet="Prosledjujes" />
+      <End Role="Povrce" EntitySet="Povrces" />
+    </AssociationSet>
+    <AssociationSet Name="PovrceOdvaja" Association="database.Store.PovrceOdvaja">
+      <End Role="Povrce" EntitySet="Povrces" />
+      <End Role="Odvaja" EntitySet="Odvajas" />
+    </AssociationSet>
+    <AssociationSet Name="ProsledjujeOdvaja" Association="database.Store.ProsledjujeOdvaja">
+      <End Role="Prosledjuje" EntitySet="Prosledjujes" />
+      <End Role="Odvaja" EntitySet="Odvajas" />
+    </AssociationSet>
+    <AssociationSet Name="VozacTovari" Association="database.Store.VozacTovari">
+      <End Role="Vozac" EntitySet="Radniks_Vozac" />
+      <End Role="Tovari" EntitySet="Tovaris" />
+    </AssociationSet>
+    <AssociationSet Name="OdvajaTovari" Association="database.Store.OdvajaTovari">
+      <End Role="Odvaja" EntitySet="Odvajas" />
+      <End Role="Tovari" EntitySet="Tovaris" />
+    </AssociationSet>
+    <AssociationSet Name="KupacVozi" Association="database.Store.KupacVozi">
+      <End Role="Kupac" EntitySet="Kupacs" />
+      <End Role="Vozi" EntitySet="Vozis" />
+    </AssociationSet>
+    <AssociationSet Name="TovariVozi" Association="database.Store.TovariVozi">
+      <End Role="Tovari" EntitySet="Tovaris" />
+      <End Role="Vozi" EntitySet="Vozis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Direktor_inherits_Radnik" Association="database.Store.FK_Direktor_inherits_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="Direktor" EntitySet="Radniks_Direktor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menadzer_inherits_Radnik" Association="database.Store.FK_Menadzer_inherits_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="Menadzer" EntitySet="Radniks_Menadzer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Magacioner_inherits_Radnik" Association="database.Store.FK_Magacioner_inherits_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="Magacioner" EntitySet="Radniks_Magacioner" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vozac_inherits_Radnik" Association="database.Store.FK_Vozac_inherits_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="Vozac" EntitySet="Radniks_Vozac" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Radniks">
+    <Key>
+      <PropertyRef Name="JMBG" />
+    </Key>
+    <Property Name="PRZ" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IME" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PLT" Type="int" Nullable="false" />
+    <Property Name="JMBG" Type="int" Nullable="false" />
+    <Property Name="POZ" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kupacs">
+    <Key>
+      <PropertyRef Name="KID" />
+    </Key>
+    <Property Name="KID" Type="int" Nullable="false" />
+    <Property Name="KNAZIV" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KULICA" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KGRAD" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KBROJ" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KFIKSNI" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KMOB" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ugovors">
+    <Key>
+      <PropertyRef Name="KupacKID" />
+      <PropertyRef Name="DirektorJMBG" />
+    </Key>
+    <Property Name="DATUM" Type="datetime" Nullable="false" />
+    <Property Name="DirektorJMBG" Type="int" Nullable="false" />
+    <Property Name="KupacKID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Porudzbinas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="UgovorKupacKID" Type="int" Nullable="false" />
+    <Property Name="UgovorDirektorJMBG" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="MenadzerJMBG" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Prosledjujes">
+    <Key>
+      <PropertyRef Name="PorudzbinaID" />
+      <PropertyRef Name="MagacionerJMBG1" />
+    </Key>
+    <Property Name="PorudzbinaID" Type="int" Nullable="false" />
+    <Property Name="MagacionerJMBG1" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dobavljacs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAZIV" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ULICA" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GRAD" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BROJ" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FIKSNI" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MOBILNI" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kontakts">
+    <Key>
+      <PropertyRef Name="DobavljacID" />
+      <PropertyRef Name="DirektorJMBG" />
+    </Key>
+    <Property Name="DATUM" Type="datetime" Nullable="false" />
+    <Property Name="DobavljacID" Type="int" Nullable="false" />
+    <Property Name="DirektorJMBG" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Magacins">
+    <Key>
+      <PropertyRef Name="MID" />
+    </Key>
+    <Property Name="MID" Type="int" Nullable="false" />
+    <Property Name="MGRAD" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MULICA" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MBROJ" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KAPACITET" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Povrces">
+    <Key>
+      <PropertyRef Name="MagacinMID" />
+      <PropertyRef Name="VID" />
+    </Key>
+    <Property Name="VID" Type="int" Nullable="false" />
+    <Property Name="VNAZIV" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ZEMLJAP" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ROK" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MagacinMID" Type="int" Nullable="false" />
+    <Property Name="KontaktDobavljacID" Type="int" Nullable="false" />
+    <Property Name="KontaktDirektorJMBG" Type="int" Nullable="false" />
+    <Property Name="ProsledjujePorudzbinaID" Type="int" Nullable="false" />
+    <Property Name="ProsledjujeMagacionerJMBG1" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Odvajas">
+    <Key>
+      <PropertyRef Name="PovrceMagacinMID" />
+      <PropertyRef Name="PovrceVID" />
+    </Key>
+    <Property Name="PovrceMagacinMID" Type="int" Nullable="false" />
+    <Property Name="PovrceVID" Type="int" Nullable="false" />
+    <Property Name="ProsledjujePorudzbinaID" Type="int" Nullable="false" />
+    <Property Name="ProsledjujeMagacionerJMBG1" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tovaris">
+    <Key>
+      <PropertyRef Name="VozacJMBG" />
+      <PropertyRef Name="OdvajaPovrceMagacinMID" />
+      <PropertyRef Name="OdvajaPovrceVID" />
+    </Key>
+    <Property Name="VozacJMBG" Type="int" Nullable="false" />
+    <Property Name="OdvajaPovrceMagacinMID" Type="int" Nullable="false" />
+    <Property Name="OdvajaPovrceVID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vozis">
+    <Key>
+      <PropertyRef Name="KupacKID" />
+      <PropertyRef Name="TovariVozacJMBG" />
+      <PropertyRef Name="TovariOdvajaPovrceMagacinMID" />
+      <PropertyRef Name="TovariOdvajaPovrceVID" />
+    </Key>
+    <Property Name="KupacKID" Type="int" Nullable="false" />
+    <Property Name="TovariVozacJMBG" Type="int" Nullable="false" />
+    <Property Name="TovariOdvajaPovrceMagacinMID" Type="int" Nullable="false" />
+    <Property Name="TovariOdvajaPovrceVID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks_Direktor">
+    <Key>
+      <PropertyRef Name="JMBG" />
+    </Key>
+    <Property Name="JMBG" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks_Menadzer">
+    <Key>
+      <PropertyRef Name="JMBG" />
+    </Key>
+    <Property Name="JMBG" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks_Magacioner">
+    <Key>
+      <PropertyRef Name="JMBG" />
+    </Key>
+    <Property Name="JMBG" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks_Vozac">
+    <Key>
+      <PropertyRef Name="JMBG" />
+    </Key>
+    <Property Name="JMBG" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="DirektorUgovor">
+    <End Role="Direktor" Type="database.Store.Radniks_Direktor" Multiplicity="1" />
+    <End Role="Ugovor" Type="database.Store.Ugovors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direktor">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Ugovor">
+        <PropertyRef Name="DirektorJMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KupacUgovor">
+    <End Role="Kupac" Type="database.Store.Kupacs" Multiplicity="1" />
+    <End Role="Ugovor" Type="database.Store.Ugovors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kupac">
+        <PropertyRef Name="KID" />
+      </Principal>
+      <Dependent Role="Ugovor">
+        <PropertyRef Name="KupacKID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UgovorPorudzbina">
+    <End Role="Ugovor" Type="database.Store.Ugovors" Multiplicity="1" />
+    <End Role="Porudzbina" Type="database.Store.Porudzbinas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ugovor">
+        <PropertyRef Name="KupacKID" />
+        <PropertyRef Name="DirektorJMBG" />
+      </Principal>
+      <Dependent Role="Porudzbina">
+        <PropertyRef Name="UgovorKupacKID" />
+        <PropertyRef Name="UgovorDirektorJMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MenadzerPorudzbina">
+    <End Role="Menadzer" Type="database.Store.Radniks_Menadzer" Multiplicity="1" />
+    <End Role="Porudzbina" Type="database.Store.Porudzbinas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menadzer">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Porudzbina">
+        <PropertyRef Name="MenadzerJMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PorudzbinaProsledjuje">
+    <End Role="Porudzbina" Type="database.Store.Porudzbinas" Multiplicity="1" />
+    <End Role="Prosledjuje" Type="database.Store.Prosledjujes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Porudzbina">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Prosledjuje">
+        <PropertyRef Name="PorudzbinaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MagacionerProsledjuje">
+    <End Role="Magacioner" Type="database.Store.Radniks_Magacioner" Multiplicity="1" />
+    <End Role="Prosledjuje" Type="database.Store.Prosledjujes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magacioner">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Prosledjuje">
+        <PropertyRef Name="MagacionerJMBG1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DobavljacKontakt">
+    <End Role="Dobavljac" Type="database.Store.Dobavljacs" Multiplicity="1" />
+    <End Role="Kontakt" Type="database.Store.Kontakts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dobavljac">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Kontakt">
+        <PropertyRef Name="DobavljacID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DirektorKontakt">
+    <End Role="Direktor" Type="database.Store.Radniks_Direktor" Multiplicity="1" />
+    <End Role="Kontakt" Type="database.Store.Kontakts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direktor">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Kontakt">
+        <PropertyRef Name="DirektorJMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MagacinPovrce">
+    <End Role="Magacin" Type="database.Store.Magacins" Multiplicity="1" />
+    <End Role="Povrce" Type="database.Store.Povrces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magacin">
+        <PropertyRef Name="MID" />
+      </Principal>
+      <Dependent Role="Povrce">
+        <PropertyRef Name="MagacinMID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KontaktPovrce">
+    <End Role="Kontakt" Type="database.Store.Kontakts" Multiplicity="1" />
+    <End Role="Povrce" Type="database.Store.Povrces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kontakt">
+        <PropertyRef Name="DobavljacID" />
+        <PropertyRef Name="DirektorJMBG" />
+      </Principal>
+      <Dependent Role="Povrce">
+        <PropertyRef Name="KontaktDobavljacID" />
+        <PropertyRef Name="KontaktDirektorJMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProsledjujePovrce">
+    <End Role="Prosledjuje" Type="database.Store.Prosledjujes" Multiplicity="1" />
+    <End Role="Povrce" Type="database.Store.Povrces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prosledjuje">
+        <PropertyRef Name="PorudzbinaID" />
+        <PropertyRef Name="MagacionerJMBG1" />
+      </Principal>
+      <Dependent Role="Povrce">
+        <PropertyRef Name="ProsledjujePorudzbinaID" />
+        <PropertyRef Name="ProsledjujeMagacionerJMBG1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PovrceOdvaja">
+    <End Role="Povrce" Type="database.Store.Povrces" Multiplicity="1" />
+    <End Role="Odvaja" Type="database.Store.Odvajas" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Povrce">
+        <PropertyRef Name="MagacinMID" />
+        <PropertyRef Name="VID" />
+      </Principal>
+      <Dependent Role="Odvaja">
+        <PropertyRef Name="PovrceMagacinMID" />
+        <PropertyRef Name="PovrceVID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProsledjujeOdvaja">
+    <End Role="Prosledjuje" Type="database.Store.Prosledjujes" Multiplicity="1" />
+    <End Role="Odvaja" Type="database.Store.Odvajas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prosledjuje">
+        <PropertyRef Name="PorudzbinaID" />
+        <PropertyRef Name="MagacionerJMBG1" />
+      </Principal>
+      <Dependent Role="Odvaja">
+        <PropertyRef Name="ProsledjujePorudzbinaID" />
+        <PropertyRef Name="ProsledjujeMagacionerJMBG1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VozacTovari">
+    <End Role="Vozac" Type="database.Store.Radniks_Vozac" Multiplicity="1" />
+    <End Role="Tovari" Type="database.Store.Tovaris" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vozac">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Tovari">
+        <PropertyRef Name="VozacJMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OdvajaTovari">
+    <End Role="Odvaja" Type="database.Store.Odvajas" Multiplicity="1" />
+    <End Role="Tovari" Type="database.Store.Tovaris" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Odvaja">
+        <PropertyRef Name="PovrceMagacinMID" />
+        <PropertyRef Name="PovrceVID" />
+      </Principal>
+      <Dependent Role="Tovari">
+        <PropertyRef Name="OdvajaPovrceMagacinMID" />
+        <PropertyRef Name="OdvajaPovrceVID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KupacVozi">
+    <End Role="Kupac" Type="database.Store.Kupacs" Multiplicity="1" />
+    <End Role="Vozi" Type="database.Store.Vozis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kupac">
+        <PropertyRef Name="KID" />
+      </Principal>
+      <Dependent Role="Vozi">
+        <PropertyRef Name="KupacKID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TovariVozi">
+    <End Role="Tovari" Type="database.Store.Tovaris" Multiplicity="1" />
+    <End Role="Vozi" Type="database.Store.Vozis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tovari">
+        <PropertyRef Name="VozacJMBG" />
+        <PropertyRef Name="OdvajaPovrceMagacinMID" />
+        <PropertyRef Name="OdvajaPovrceVID" />
+      </Principal>
+      <Dependent Role="Vozi">
+        <PropertyRef Name="TovariVozacJMBG" />
+        <PropertyRef Name="TovariOdvajaPovrceMagacinMID" />
+        <PropertyRef Name="TovariOdvajaPovrceVID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Direktor_inherits_Radnik">
+    <End Role="Radnik" Type="database.Store.Radniks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Direktor" Type="database.Store.Radniks_Direktor" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Direktor">
+        <PropertyRef Name="JMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menadzer_inherits_Radnik">
+    <End Role="Radnik" Type="database.Store.Radniks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Menadzer" Type="database.Store.Radniks_Menadzer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Menadzer">
+        <PropertyRef Name="JMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Magacioner_inherits_Radnik">
+    <End Role="Radnik" Type="database.Store.Radniks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Magacioner" Type="database.Store.Radniks_Magacioner" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Magacioner">
+        <PropertyRef Name="JMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vozac_inherits_Radnik">
+    <End Role="Radnik" Type="database.Store.Radniks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vozac" Type="database.Store.Radniks_Vozac" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Vozac">
+        <PropertyRef Name="JMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="database" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
@@ -486,13 +1011,158 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="database" />
-        <Alias Key="Target" Value="database.Store" />
-        <EntityContainerMapping CdmEntityContainer="databaseContainer" StorageEntityContainer="databaseTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="databaseStoreContainer" CdmEntityContainer="databaseContainer">
+    <EntitySetMapping Name="Radniks">
+      <EntityTypeMapping TypeName="IsTypeOf(database.Radnik)">
+        <MappingFragment StoreEntitySet="Radniks">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+          <ScalarProperty Name="PRZ" ColumnName="PRZ" />
+          <ScalarProperty Name="IME" ColumnName="IME" />
+          <ScalarProperty Name="PLT" ColumnName="PLT" />
+          <ScalarProperty Name="POZ" ColumnName="POZ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(database.Direktor)">
+        <MappingFragment StoreEntitySet="Radniks_Direktor">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(database.Menadzer)">
+        <MappingFragment StoreEntitySet="Radniks_Menadzer">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(database.Magacioner)">
+        <MappingFragment StoreEntitySet="Radniks_Magacioner">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(database.Vozac)">
+        <MappingFragment StoreEntitySet="Radniks_Vozac">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kupacs">
+      <EntityTypeMapping TypeName="IsTypeOf(database.Kupac)">
+        <MappingFragment StoreEntitySet="Kupacs">
+          <ScalarProperty Name="KID" ColumnName="KID" />
+          <ScalarProperty Name="KNAZIV" ColumnName="KNAZIV" />
+          <ScalarProperty Name="KULICA" ColumnName="KULICA" />
+          <ScalarProperty Name="KGRAD" ColumnName="KGRAD" />
+          <ScalarProperty Name="KBROJ" ColumnName="KBROJ" />
+          <ScalarProperty Name="KFIKSNI" ColumnName="KFIKSNI" />
+          <ScalarProperty Name="KMOB" ColumnName="KMOB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ugovors">
+      <EntityTypeMapping TypeName="IsTypeOf(database.Ugovor)">
+        <MappingFragment StoreEntitySet="Ugovors">
+          <ScalarProperty Name="KupacKID" ColumnName="KupacKID" />
+          <ScalarProperty Name="DirektorJMBG" ColumnName="DirektorJMBG" />
+          <ScalarProperty Name="DATUM" ColumnName="DATUM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Porudzbinas">
+      <EntityTypeMapping TypeName="IsTypeOf(database.Porudzbina)">
+        <MappingFragment StoreEntitySet="Porudzbinas">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UgovorKupacKID" ColumnName="UgovorKupacKID" />
+          <ScalarProperty Name="UgovorDirektorJMBG" ColumnName="UgovorDirektorJMBG" />
+          <ScalarProperty Name="MenadzerJMBG" ColumnName="MenadzerJMBG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prosledjujes">
+      <EntityTypeMapping TypeName="IsTypeOf(database.Prosledjuje)">
+        <MappingFragment StoreEntitySet="Prosledjujes">
+          <ScalarProperty Name="PorudzbinaID" ColumnName="PorudzbinaID" />
+          <ScalarProperty Name="MagacionerJMBG1" ColumnName="MagacionerJMBG1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dobavljacs">
+      <EntityTypeMapping TypeName="IsTypeOf(database.Dobavljac)">
+        <MappingFragment StoreEntitySet="Dobavljacs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAZIV" ColumnName="NAZIV" />
+          <ScalarProperty Name="ULICA" ColumnName="ULICA" />
+          <ScalarProperty Name="GRAD" ColumnName="GRAD" />
+          <ScalarProperty Name="BROJ" ColumnName="BROJ" />
+          <ScalarProperty Name="FIKSNI" ColumnName="FIKSNI" />
+          <ScalarProperty Name="MOBILNI" ColumnName="MOBILNI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kontakts">
+      <EntityTypeMapping TypeName="IsTypeOf(database.Kontakt)">
+        <MappingFragment StoreEntitySet="Kontakts">
+          <ScalarProperty Name="DobavljacID" ColumnName="DobavljacID" />
+          <ScalarProperty Name="DirektorJMBG" ColumnName="DirektorJMBG" />
+          <ScalarProperty Name="DATUM" ColumnName="DATUM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Magacins">
+      <EntityTypeMapping TypeName="IsTypeOf(database.Magacin)">
+        <MappingFragment StoreEntitySet="Magacins">
+          <ScalarProperty Name="MID" ColumnName="MID" />
+          <ScalarProperty Name="MGRAD" ColumnName="MGRAD" />
+          <ScalarProperty Name="MULICA" ColumnName="MULICA" />
+          <ScalarProperty Name="MBROJ" ColumnName="MBROJ" />
+          <ScalarProperty Name="KAPACITET" ColumnName="KAPACITET" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Povrces">
+      <EntityTypeMapping TypeName="IsTypeOf(database.Povrce)">
+        <MappingFragment StoreEntitySet="Povrces">
+          <ScalarProperty Name="MagacinMID" ColumnName="MagacinMID" />
+          <ScalarProperty Name="VID" ColumnName="VID" />
+          <ScalarProperty Name="VNAZIV" ColumnName="VNAZIV" />
+          <ScalarProperty Name="ZEMLJAP" ColumnName="ZEMLJAP" />
+          <ScalarProperty Name="ROK" ColumnName="ROK" />
+          <ScalarProperty Name="KontaktDobavljacID" ColumnName="KontaktDobavljacID" />
+          <ScalarProperty Name="KontaktDirektorJMBG" ColumnName="KontaktDirektorJMBG" />
+          <ScalarProperty Name="ProsledjujePorudzbinaID" ColumnName="ProsledjujePorudzbinaID" />
+          <ScalarProperty Name="ProsledjujeMagacionerJMBG1" ColumnName="ProsledjujeMagacionerJMBG1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Odvajas">
+      <EntityTypeMapping TypeName="IsTypeOf(database.Odvaja)">
+        <MappingFragment StoreEntitySet="Odvajas">
+          <ScalarProperty Name="PovrceMagacinMID" ColumnName="PovrceMagacinMID" />
+          <ScalarProperty Name="PovrceVID" ColumnName="PovrceVID" />
+          <ScalarProperty Name="ProsledjujePorudzbinaID" ColumnName="ProsledjujePorudzbinaID" />
+          <ScalarProperty Name="ProsledjujeMagacionerJMBG1" ColumnName="ProsledjujeMagacionerJMBG1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tovaris">
+      <EntityTypeMapping TypeName="IsTypeOf(database.Tovari)">
+        <MappingFragment StoreEntitySet="Tovaris">
+          <ScalarProperty Name="VozacJMBG" ColumnName="VozacJMBG" />
+          <ScalarProperty Name="OdvajaPovrceMagacinMID" ColumnName="OdvajaPovrceMagacinMID" />
+          <ScalarProperty Name="OdvajaPovrceVID" ColumnName="OdvajaPovrceVID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vozis">
+      <EntityTypeMapping TypeName="IsTypeOf(database.Vozi)">
+        <MappingFragment StoreEntitySet="Vozis">
+          <ScalarProperty Name="KupacKID" ColumnName="KupacKID" />
+          <ScalarProperty Name="TovariVozacJMBG" ColumnName="TovariVozacJMBG" />
+          <ScalarProperty Name="TovariOdvajaPovrceMagacinMID" ColumnName="TovariOdvajaPovrceMagacinMID" />
+          <ScalarProperty Name="TovariOdvajaPovrceVID" ColumnName="TovariOdvajaPovrceVID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -506,6 +1176,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
