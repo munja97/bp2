@@ -144,7 +144,7 @@
           <NavigationProperty Name="Porudzbinas" Relationship="database.UgovorPorudzbina" FromRole="Ugovor" ToRole="Porudzbina" />
         </EntityType>
         <Association Name="DirektorUgovor">
-          <End Type="database.Direktor" Role="Direktor" Multiplicity="0..1" />
+          <End Type="database.Direktor" Role="Direktor" Multiplicity="1" />
           <End Type="database.Ugovor" Role="Ugovor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Direktor">
@@ -156,7 +156,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="KupacUgovor">
-          <End Type="database.Kupac" Role="Kupac" Multiplicity="0..1" />
+          <End Type="database.Kupac" Role="Kupac" Multiplicity="1" />
           <End Type="database.Ugovor" Role="Ugovor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Kupac">
@@ -218,7 +218,7 @@
           <NavigationProperty Name="Odvajas" Relationship="database.ProsledjujeOdvaja" FromRole="Prosledjuje" ToRole="Odvaja" />
         </EntityType>
         <Association Name="PorudzbinaProsledjuje">
-          <End Type="database.Porudzbina" Role="Porudzbina" Multiplicity="0..1" />
+          <End Type="database.Porudzbina" Role="Porudzbina" Multiplicity="1" />
           <End Type="database.Prosledjuje" Role="Prosledjuje" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Porudzbina">
@@ -230,7 +230,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="MagacionerProsledjuje">
-          <End Type="database.Magacioner" Role="Magacioner" Multiplicity="0..1" />
+          <End Type="database.Magacioner" Role="Magacioner" Multiplicity="1" />
           <End Type="database.Prosledjuje" Role="Prosledjuje" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Magacioner">
@@ -267,7 +267,7 @@
           <NavigationProperty Name="Povrces" Relationship="database.KontaktPovrce" FromRole="Kontakt" ToRole="Povrce" />
         </EntityType>
         <Association Name="DobavljacKontakt">
-          <End Type="database.Dobavljac" Role="Dobavljac" Multiplicity="0..1" />
+          <End Type="database.Dobavljac" Role="Dobavljac" Multiplicity="1" />
           <End Type="database.Kontakt" Role="Kontakt" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dobavljac">
@@ -279,7 +279,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="DirektorKontakt">
-          <End Type="database.Direktor" Role="Direktor" Multiplicity="0..1" />
+          <End Type="database.Direktor" Role="Direktor" Multiplicity="1" />
           <End Type="database.Kontakt" Role="Kontakt" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Direktor">
@@ -375,7 +375,7 @@
         </EntityType>
         <Association Name="PovrceOdvaja">
           <End Type="database.Povrce" Role="Povrce" Multiplicity="1" />
-          <End Type="database.Odvaja" Role="Odvaja" Multiplicity="*" />
+          <End Type="database.Odvaja" Role="Odvaja" Multiplicity="1" />
           <ReferentialConstraint>
             <Principal Role="Povrce">
               <PropertyRef Name="MagacinMID" />

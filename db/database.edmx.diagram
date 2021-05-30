@@ -36,8 +36,9 @@
         <AssociationConnector Association="database.MagacinPovrce" />
         <AssociationConnector Association="database.KontaktPovrce" />
         <AssociationConnector Association="database.ProsledjujePovrce" />
-        <EntityTypeShape EntityType="database.Odvaja" Width="1.5" PointX="8" PointY="6.625" IsExpanded="false" />
-        <AssociationConnector Association="database.PovrceOdvaja" />
+        <EntityTypeShape EntityType="database.Odvaja" Width="1.5" PointX="8.75" PointY="9" IsExpanded="false" />
+        <AssociationConnector Association="database.PovrceOdvaja" ManuallyRouted="false" >
+        </AssociationConnector>
         <AssociationConnector Association="database.ProsledjujeOdvaja" />
         <EntityTypeShape EntityType="database.Tovari" Width="1.5" PointX="2.625" PointY="6.375" IsExpanded="false" />
         <AssociationConnector Association="database.VozacTovari" ManuallyRouted="false" >
