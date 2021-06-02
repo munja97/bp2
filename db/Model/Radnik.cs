@@ -7,21 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace db
+namespace db.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Menadzer : Radnik
+    public partial class Radnik
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Menadzer()
-        {
-            this.Porudzbinas = new HashSet<Porudzbina>();
-        }
-    
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Porudzbina> Porudzbinas { get; set; }
+        public string PRZ { get; set; }
+        public string IME { get; set; }
+        public int PLT { get; set; }
+        public int JMBG { get; set; }
+        public string POZ { get; set; }
     }
 }

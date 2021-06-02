@@ -1,0 +1,52 @@
+﻿<Window x:Class="BP2.Kupac"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BP2"
+        mc:Ignorable="d"
+        Title="Kupac" Height="527.667" Width="826.333">
+    <Grid>
+        <DataGrid x:Name="kupci" HorizontalAlignment="Left" Height="206" VerticalAlignment="Top" Width="597" Margin="87,83,0,0" RenderTransformOrigin="0.5,0.5">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Button_Delete" >Delete</Button>
+
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button >Modify</Button>
+
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="KID" HorizontalAlignment="Left" Height="28" Margin="89,308,0,0" VerticalAlignment="Top" Width="98"/>
+        <Label Content="KNAZIV" HorizontalAlignment="Left" Height="28" Margin="89,341,0,0" VerticalAlignment="Top" Width="98" RenderTransformOrigin="0.527,2.417"/>
+        <Label Content="KULICA" HorizontalAlignment="Left" Height="28" Margin="89,374,0,0" VerticalAlignment="Top" Width="98"/>
+        <Label Content="KGRAD" HorizontalAlignment="Left" Height="28" Margin="301,308,0,0" VerticalAlignment="Top" Width="98"/>
+        <Label Content="KBROJ" HorizontalAlignment="Left" Height="28" Margin="301,341,0,0" VerticalAlignment="Top" Width="98"/>
+        <Label Content="KFIKSNI" HorizontalAlignment="Left" Height="28" Margin="301,374,0,0" VerticalAlignment="Top" Width="98"/>
+        <Label Content="KMOBILNI" HorizontalAlignment="Left" Height="28" Margin="518,308,0,0" VerticalAlignment="Top" Width="98"/>
+        <Label Content="UGOVOR" HorizontalAlignment="Left" Height="28" Margin="518,341,0,0" VerticalAlignment="Top" Width="98"/>
+        <TextBox x:Name="kid" HorizontalAlignment="Left" Height="28" Margin="192,308,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="104"/>
+        <TextBox x:Name="knaziv" HorizontalAlignment="Left" Height="28" Margin="192,341,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="104"/>
+        <TextBox x:Name="kulica" HorizontalAlignment="Left" Height="28" Margin="192,374,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="104"/>
+        <TextBox x:Name="kgrad" HorizontalAlignment="Left" Height="28" Margin="409,308,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="104"/>
+        <TextBox x:Name="kbroj" HorizontalAlignment="Left" Height="28" Margin="409,341,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="104"/>
+        <TextBox x:Name="kfiksni" HorizontalAlignment="Left" Height="28" Margin="409,378,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="104"/>
+        <TextBox x:Name="kmobilni" HorizontalAlignment="Left" Height="28" Margin="621,308,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="104"/>
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Height="28" Margin="621,341,0,0" VerticalAlignment="Top" Width="104"/>
+        <Button Content="Submit" Margin="609,430,93,35" Click="Button_Click" >
+           
+        </Button>
+    </Grid>
+</Window>

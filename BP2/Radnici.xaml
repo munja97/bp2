@@ -1,0 +1,46 @@
+﻿<Window x:Class="BP2.Radnici"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BP2"
+        mc:Ignorable="d"
+        Title="Radnici" Height="450" Width="800">
+    <Grid Margin="0,0,-8,0">
+        <DataGrid x:Name="radnici" HorizontalAlignment="Left" SelectedItem="{Binding SelectedRadnik}"  Height="172" Margin="127,76,0,0" VerticalAlignment="Top" Width="564" RenderTransformOrigin="0.5,0.5">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Button_Delete" >Delete</Button>
+                            
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button >Modify</Button>
+
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Ime" HorizontalAlignment="Left" Height="31" Margin="39,274,0,0" VerticalAlignment="Top" Width="135"/>
+        <Label Content="Prezime" HorizontalAlignment="Left" Height="31" Margin="39,310,0,0" VerticalAlignment="Top" Width="135"/>
+        <Label Content="Jmbg" HorizontalAlignment="Left" Height="31" Margin="39,346,0,0" VerticalAlignment="Top" Width="135"/>
+        <Label Content="Plata" HorizontalAlignment="Left" Height="31" Margin="330,274,0,0" VerticalAlignment="Top" Width="135"/>
+        <Label Content="Pozicija" HorizontalAlignment="Left" Height="31" Margin="330,310,0,0" VerticalAlignment="Top" Width="135"/>
+        <TextBox x:Name="pozicija" HorizontalAlignment="Left" Height="31" Margin="498,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
+        <TextBox x:Name="plata" HorizontalAlignment="Left" Height="31" Margin="498,274,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
+        <TextBox x:Name="jmbg" HorizontalAlignment="Left" Height="31" Margin="179,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
+        <TextBox x:Name="prezime" HorizontalAlignment="Left" Height="31" Margin="179,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
+        <TextBox x:Name="ime" HorizontalAlignment="Left" Height="31" Margin="179,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
+        <Button Content="Submit" HorizontalAlignment="Left" Margin="686,357,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
+
+    </Grid>
+</Window>

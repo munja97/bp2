@@ -50,93 +50,93 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="database.Context.cs">
+    <Compile Include="Model\database.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>database.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="database.cs">
+    <Compile Include="Model\database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
-    <Compile Include="database.Designer.cs">
+    <Compile Include="Model\database.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>database.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Direktor.cs">
+    <Compile Include="Model\Direktor.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Dobavljac.cs">
+    <Compile Include="Model\Dobavljac.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Kontakt.cs">
+    <Compile Include="Model\Kontakt.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Kupac.cs">
+    <Compile Include="Model\Kupac.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Magacin.cs">
+    <Compile Include="Model\Magacin.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Magacioner.cs">
+    <Compile Include="Model\Magacioner.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Menadzer.cs">
+    <Compile Include="Model\Menadzer.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Odvaja.cs">
+    <Compile Include="Model\Odvaja.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Porudzbina.cs">
+    <Compile Include="Model\Porudzbina.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Povrce.cs">
+    <Compile Include="Model\Povrce.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Prosledjuje.cs">
+    <Compile Include="Model\Prosledjuje.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Radnik.cs">
+    <Compile Include="Model\Radnik.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Tovari.cs">
+    <Compile Include="Model\Tovari.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Ugovor.cs">
+    <Compile Include="Model\Ugovor.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Vozac.cs">
+    <Compile Include="Model\Vozac.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Vozi.cs">
+    <Compile Include="Model\Vozi.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="database.edmx">
+    <EntityDeploy Include="Model\database.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>database.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="database.edmx.diagram">
+    <None Include="Model\App.Config" />
+    <None Include="Model\database.edmx.diagram">
       <DependentUpon>database.edmx</DependentUpon>
     </None>
-    <None Include="packages.config" />
+    <None Include="Model\packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="database.Context.tt">
+    <Content Include="Model\database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>database.Context.cs</LastGenOutput>
       <DependentUpon>database.edmx</DependentUpon>
     </Content>
-    <Content Include="database.edmx.sql" />
-    <Content Include="database.tt">
+    <Content Include="Model\database.edmx.sql" />
+    <Content Include="Model\database.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>database.cs</LastGenOutput>
       <DependentUpon>database.edmx</DependentUpon>
@@ -144,6 +144,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,24 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace db
+namespace db.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Direktor : Radnik
+    public partial class Magacioner : Radnik
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Direktor()
+        public Magacioner()
         {
-            this.Ugovors = new HashSet<Ugovor>();
-            this.Kontakts = new HashSet<Kontakt>();
+            this.Prosledjujes = new HashSet<Prosledjuje>();
         }
     
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ugovor> Ugovors { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Kontakt> Kontakts { get; set; }
+        public virtual ICollection<Prosledjuje> Prosledjujes { get; set; }
     }
 }

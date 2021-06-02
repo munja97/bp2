@@ -7,17 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace db
+namespace db.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Radnik
+    public partial class Vozi
     {
-        public string PRZ { get; set; }
-        public string IME { get; set; }
-        public int PLT { get; set; }
-        public int JMBG { get; set; }
-        public string POZ { get; set; }
+        public int KupacKID { get; set; }
+        public int TovariVozacJMBG { get; set; }
+        public int TovariOdvajaPovrceMagacinMID { get; set; }
+        public int TovariOdvajaPovrceVID { get; set; }
+    
+        public virtual Kupac Kupac { get; set; }
+        public virtual Tovari Tovari { get; set; }
     }
 }

@@ -7,26 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace db
+namespace db.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Magacin
+    public partial class Menadzer : Radnik
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Magacin()
+        public Menadzer()
         {
-            this.Povrces = new HashSet<Povrce>();
+            this.Porudzbinas = new HashSet<Porudzbina>();
         }
     
-        public int MID { get; set; }
-        public string MGRAD { get; set; }
-        public string MULICA { get; set; }
-        public string MBROJ { get; set; }
-        public int KAPACITET { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Povrce> Povrces { get; set; }
+        public virtual ICollection<Porudzbina> Porudzbinas { get; set; }
     }
 }

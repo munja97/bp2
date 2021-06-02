@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using db.Model;
 
 namespace BP2
 {
@@ -22,7 +24,41 @@ namespace BP2
     {
         public MainWindow()
         {
+           
             InitializeComponent();
+            
+
+
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Radnici nw =new Radnici();
+            nw.Show();
+           
+
+            
+
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Direktori dw = new Direktori();
+            dw.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Porudzbina pw = new Porudzbina();
+            pw.Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Kupac kw = new Kupac();
+            kw.Show();
         }
     }
 }
